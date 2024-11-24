@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Details</title>
+</head>
+<body>
+<!-- Dynamically display song title -->
+<header>
+    <h1 th:text="${song.title}">Song title</h1>
+</header>
+
+<section>
+    <!-- Dynamically display genre and year -->
+    <h2>Genre: <span th:text="${song.genre}">Genre</span></h2>
+    <h2>Year: <span th:text="${song.releaseYear}">Year</span></h2>
+
+    <h2>Performers:</h2>
+    <ul>
+        <!-- Dynamically list performers -->
+        <li th:each="artist : ${performers}" th:text="${artist.firstName} + ' ' + ${artist.lastName}">Jon Bon Jovi</li>
+    </ul>
+</section>
+</body>
+</html>

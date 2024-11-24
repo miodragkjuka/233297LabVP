@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs Homepage - Welcome to My Music Store</title>
+    <style type="text/css">
+        body {
+            width: 800px;
+            margin: auto;
+        }
+        header h1 {
+            text-align: center;
+        }
+        main {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Welcome to My Music Store</h1>
+</header>
+<main>
+    <h2>Choose a song:</h2>
+    <!-- Iterate over the list of songs and display radio buttons for each one -->
+    <form action="/your-submit-path" method="POST">
+        <div>
+            <!-- Thymeleaf loop to display radio buttons for each song -->
+            <div th:each="song : ${songs}">
+                <input type="radio" name="trackId" th:value="${song.trackId}"
+                       th:text="'Song Title: ' + ${song.title} + ', Genre: ' + ${song.genre} + ', Release Year: ' + ${song.releaseYear}"></input><br/>
+            </div>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</main>
+</body>
+</html>
